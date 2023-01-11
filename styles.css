@@ -80,7 +80,7 @@ nav>h1 {
   background-color: darkgoldenrod;
   height: var(--book-height);
   width: var(--book-width);
-  border-radius: 5px 12px 12px 5px;
+  border-radius: 6px 15px 15px 6px;
   color: #f9fafb;
   font-family: 'Times New Roman', Times, serif;
   display: flex;
@@ -111,6 +111,7 @@ nav>h1 {
 
 .tab>svg {
   height: 30px;
+  aspect-ratio: 1 / 1;
   cursor: pointer;
 }
 
