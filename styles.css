@@ -76,8 +76,9 @@ nav>h1 {
   justify-items: center;
 }
 
+/* Book */
+
 .book {
-  background-color: darkgoldenrod;
   height: var(--book-height);
   width: var(--book-width);
   border-radius: 6px 15px 15px 6px;
