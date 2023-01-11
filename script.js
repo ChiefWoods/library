@@ -1,5 +1,5 @@
 let myLibrary = [], deleteIndex;
-let bookColors = ['rgb(239, 68, 68)', 'rgb(249, 115, 22)', 'rgb(14, 165, 233)', 'rgb(168, 85, 247)', 'rgb(236, 72, 153)', 'rgb(34, 197, 94)', 'rgb(184, 134, 11)'];
+const bookColors = ['rgb(239, 68, 68)', 'rgb(249, 115, 22)', 'rgb(14, 165, 233)', 'rgb(168, 85, 247)', 'rgb(236, 72, 153)', 'rgb(34, 197, 94)', 'rgb(184, 134, 11)'];
 
 const addBook = document.querySelector('.add');
 const shelf = document.querySelector('.shelf');
@@ -46,20 +46,15 @@ addToLibrary.addEventListener('click', e => {
     let bookAuthor = author.value;
     let bookPage = page.value;
     let bookRead = haveRead.checked;
-    const bookToAdd = new Book(bookTitle, bookAuthor, bookPage, bookRead);
+    const bookToAdd = book(bookTitle, bookAuthor, bookPage, bookRead);
     addBookToLibrary(bookToAdd);
     createBook(bookTitle, bookAuthor, bookPage, bookRead, myLibrary.indexOf(bookToAdd));
     closeOverlay();
   }
 })
 
-class Book {
-  constructor(name, author, pages, haveRead) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.haveRead = haveRead;
-  }
+function book(name, author, pages, haveRead) {
+  return { name, author, pages, haveRead };
 }
 
 function addBookToLibrary(...books) {
@@ -210,11 +205,11 @@ function createBook(bookTitle, bookAuthor, bookPage, bookRead, libraryIndex) {
   shelf.append(newBook);
 }
 
-const default1 = new Book("Billion Dollar Whale", "Tom Wright, Bradley Hope", 400, false);
+const default1 = book("Billion Dollar Whale", "Tom Wright, Bradley Hope", 400, false);
 shelf.querySelector('div.book:nth-of-type(1)').querySelector('.clock-icon').style.fill = 'rgb(239, 246, 255)';
-const default2 = new Book("Models: Attract Women Through Honesty", "Mark Manson", 260, true);
+const default2 = book("Models: Attract Women Through Honesty", "Mark Manson", 260, true);
 shelf.querySelector('div.book:nth-of-type(2)').querySelector('.check-icon').style.fill = 'rgb(74, 222, 128)';
-const default3 = new Book("Rich Dad Poor Dad", "Robert T. Kiyosaki", 336, false);
+const default3 = book("Rich Dad Poor Dad", "Robert T. Kiyosaki", 336, false);
 shelf.querySelector('div.book:nth-of-type(3)').querySelector('.favourite-icon').style.fill = 'rgb(253, 224, 71)';
 
 addBookToLibrary(default1, default2, default3);
